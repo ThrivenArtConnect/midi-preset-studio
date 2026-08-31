@@ -1,0 +1,14 @@
+node_modules/
+out/
+dist/
+release/
+.vite/
+coverage/
+.DS_Store
+*.log
+.cursor/
+.env*
+*.syx
+*.mid
+*.midi
+presets_backup.json

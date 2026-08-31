@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "slot": 13,
+  "name": "SICKFYN1",
+  "source": "MPD24_PRESET_SICKFYN1_und_ClaudeCode_Uebergabe.md (Stand 2026-08-29). KORREKTUR 2026-08-29: Die urspruenglich vorgesehene TGL-Ausnahme fuer Bank D (spaeter B/C/D) Pad 13-16 entfaellt ersatzlos. Grund: Play Mode fuer Pad-Index 9-16 in Bank B/C/D liegt auf denselben Rohbytes (108-115) wie das Event-Type-Flag von Bank A Pad 1-8. Ein TGL an Pad 13-16 (Index 12-15) ueberschreibt dadurch beim Serialisieren das Event-Type-Flag von Bank A Pad 5-8 (Perc1, Perc2, Ride, Crash) und macht sie ungewollt TGL - bestaetigt per Roundtrip-Test (Vorlage -> Generator -> Raw -> Parser), siehe test/preset-generator.test.js. Deshalb: alle 64 Pads MTY, keine Ausnahme. Der Validator (preset-validator.js) warnt zusaetzlich, falls jemand TGL auf dieser Pad-Kombination setzt.",
+  "padDefaults": {
+    "eventType": "NOTE",
+    "mode": "MTY",
+    "pressure": "OFF",
+    "channel": 0
+  },
+  "banks": {
+    "A": {
+      "noteStart": 36
+    },
+    "B": {
+      "noteStart": 52
+    },
+    "C": {
+      "noteStart": 68
+    },
+    "D": {
+      "noteStart": 84
+    }
+  },
+  "knobs": [
+    { "cc": 20, "ch": 11, "min": 0, "max": 127 },
+    { "cc": 21, "ch": 11, "min": 0, "max": 127 },
+    { "cc": 22, "ch": 11, "min": 0, "max": 127 },
+    { "cc": 23, "ch": 11, "min": 0, "max": 127 },
+    { "cc": 24, "ch": 11, "min": 0, "max": 127 },
+    { "cc": 25, "ch": 11, "min": 0, "max": 127 },
+    { "cc": 26, "ch": 11, "min": 0, "max": 127 },
+    { "cc": 27, "ch": 11, "min": 0, "max": 127 }
+  ],
+  "faders": [
+    { "cc": 28, "ch": 11, "min": 0, "max": 127 },
+    { "cc": 29, "ch": 11, "min": 0, "max": 127 },
+    { "cc": 30, "ch": 11, "min": 0, "max": 127 },
+    { "cc": 31, "ch": 11, "min": 0, "max": 127 },
+    { "cc": 102, "ch": 11, "min": 0, "max": 127 },
+    { "cc": 103, "ch": 11, "min": 0, "max": 127 }
+  ]
+}
